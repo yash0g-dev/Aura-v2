@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A U R A // Premium E-Commerce Ecosystem
 
-## Getting Started
+Aura is a high-end, production-ready full-stack e-commerce experience tailored for premium technical performance gear. Built with a stark, industrial minimalist design language inspired by luxury editorial frameworks (Zara, Nike Lab), the ecosystem features asynchronous layout scaling, real-time query parameter synchronization, and cryptographic payment fulfillment pipelines.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📸 Interface Showcases
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Client Discovery Catalog Shell
+![Aura Client Interface Grid](https://placehold.co/1200x600/0a0a0a/ffffff?text=AURA+CLIENT+CATALOG+SHEET+-[SQUEEZE+FILTER+ACTIVE])
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Administrative Workspace Hub
+![Aura Administrative Command Center](https://placehold.co/1200x600/0a0a0a/ffffff?text=ADMINISTRATOR+CONTROL+HUB+-[LIVE+TELEMETRY+DASHBOARD])
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Architecture Matrix
 
-To learn more about Next.js, take a look at the following resources:
+The architecture splits responsibility across a decoupled micro-architecture layer. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> [!NOTE]  
+> **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/YOUR_USERNAME/YOUR_BACKEND_V1_REPO).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Tech Stack Details
 
-## Deploy on Vercel
+| Layer | Technology | Primary Utility Function |
+| :--- | :--- | :--- |
+| **Frontend Frame** | `Next.js 15+ (App Router)` | Server-first layout generation, unified file-system routing. |
+| **Style Canvas** | `Tailwind CSS` | Utility-first stark layout layouts, fluid layouts. |
+| **Kinetic Layer** | `Framer Motion` | Hardware-accelerated width squeezing and full-bleed transitions. |
+| **State Repository** | `Zustand` | Persistent lightweight memory array caching for asynchronous bag/cart tracking. |
+| **Backend Engine** | `Node.js` / `Express` | Micro-route controllers, secure JSON Web Token authorization lines. |
+| **Database Pool** | `MongoDB` / `Mongoose` | Rigid aggregation modeling and nested verification sub-documents. |
+| **Media Delivery** | `Multer` / `Cloudinary` | Direct multi-part buffer asset streaming bypassing local disk layers. |
+| **Payment Gateway**| `Razorpay SDK` | Cryptographic merchant handshake signatures and validation sandboxes. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚡ Core Engineering Milestones
+
+* **Dynamic Fluid Layout Squeezing:** The refinement sidebar component dynamically manipulates grid widths via hardware-accelerated vectors, re-flowing products in real time without causing screen stuttering or rendering breaks.
+* **Two-Way URL Query Synchronization:** Filter checkboxes are bound directly to the browser search parameters. Refreshing the browser or passing the link fully preserves checked search parameters across sessions.
+* **Cross-Origin Cookie Handshaking:** Session verification passes automatically across independent cross-origin ports (`:3000` to `:5050`) using secure `httpOnly` tracking flags and rigid CORS parameters.
+* **Memory-Safe Upload Multiplexing:** Form layouts handle native image attachments seamlessly. Files are handled using memory buffers that stream chunks straight onto Cloudinary cloud delivery networks.
+
+---
+
+## 📋 System Configuration Variables
+
+Create these localized profile documents inside the respective root directories to bind service nodes cleanly.
+
+### Frontend Credentials (`/frontend/.env.local`)
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5050
+NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_YourPublicKeyHere
