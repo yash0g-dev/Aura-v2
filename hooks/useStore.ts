@@ -1,0 +1,16 @@
+import { useState, useEffect } from "react";
+
+export function useStore<T, F>(
+  store: (callback: (state: T) => unknown) => unknown,
+  callback: (state: T) => F,
+) {
+  const result = store(callback) as F;
+  const [data, setData] = useState<F>();
+
+  // Wait until the component mounts on the client before returning data
+  useEffect(() => {
+    setData(result);
+  }, [result]);
+
+  return data;
+}
