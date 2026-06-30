@@ -5,17 +5,18 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import axiosInstance from "@/lib/axios";
 import { SlidersHorizontal, Check, Loader2, ShoppingCart } from "lucide-react";
+import type { IProduct } from "@types/product.ts";
 import { toast } from "react-hot-toast";
 import { useCartStore } from "@/store/useCartStore";
 
 export default function IntegratedShopPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const addItem = useCartStore((state) => state.addItem);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   // Core UI & Data UI States
   const [isFilterOpen, setIsFilterOpen] = useState(true);
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Filter Target State Repositories
@@ -317,7 +318,7 @@ export default function IntegratedShopPage() {
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                         <button
                           onClick={() => {
-                            addItem(product, "M");
+                            addToCart(product, "M");
                             toast.success("Added to shopping bag Matrix");
                           }}
                           className="w-full bg-white text-black py-3 text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors"
