@@ -5,7 +5,6 @@ import Image from "next/image";
 import Script from "next/script";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
-import { useStore } from "@/hooks/useStore";
 import axiosInstance from "@/lib/axios";
 import { CreditCard, Truck, ShieldCheck, Loader2 } from "lucide-react";
 import { toast } from "react-hot-toast";
@@ -14,9 +13,8 @@ export default function CheckoutPage() {
   const router = useRouter();
   const clearCart = useCartStore((state) => state.clearCart);
 
-  const cart = useStore(useCartStore, (state) => state.cart) ?? [];
-  const subtotal =
-    useStore(useCartStore, (state) => state.getCartSubtotal()) ?? 0;
+  const cart = useCartStore((state) => state.cart);
+  const subtotal = useCartStore((state) => state.getCartSubtotal());
 
   // Calculate pricing metrics
   const shipping = subtotal > 150 ? 0 : 15;
