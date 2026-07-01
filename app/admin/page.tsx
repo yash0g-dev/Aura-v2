@@ -122,7 +122,7 @@ export default function AdminDashboardPage() {
       formData.append("category", newProduct.category);
       formData.append("subCategory", newProduct.subCategory);
       formData.append("brand", newProduct.brand);
-      formData.append("image", productFile); // Maps safely to upload.single("image")
+      formData.append("image", productFile); 
 
       await axiosInstance.post("/api/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -180,7 +180,7 @@ export default function AdminDashboardPage() {
 
       {/* TAB SUB-PANEL CONTENT RENDERING SWITCHES */}
       
-      {/* 🟢 AREA A: ANALYTICS INTEL REPORTING VIEW */}
+      {/* AREA A: ANALYTICS INTEL REPORTING VIEW */}
       {activeTab === "analytics" && (
         <div className="space-y-8 animate-fadeIn">
           {/* Metadata Performance Cards Row (Updated to handle 5 responsive blocks matching your backend dictionary) */}
@@ -291,7 +291,7 @@ export default function AdminDashboardPage() {
         </div>
       )}
 
-      {/* 🟡 AREA C: INVENTORY CREATE SPECIFICATION FORM SHEETS */}
+      {/*  AREA C: INVENTORY CREATE SPECIFICATION FORM SHEETS */}
       {activeTab === "create" && (
         <form onSubmit={handleCreateProduct} className="max-w-xl bg-neutral-950 border border-neutral-900 p-8 space-y-6 animate-fadeIn">
           <div>
@@ -321,6 +321,16 @@ export default function AdminDashboardPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
+           <div>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Brand</label>
+              <input
+                type="text" required value={newProduct.brand}
+                onChange={(e) => setNewProduct({ ...newProduct, brand: e.target.value })}
+                className="w-full bg-neutral-900 border border-neutral-850 px-4 py-3.5 text-sm focus:outline-none focus:border-neutral-500 text-white transition-colors rounded-none"
+                placeholder="Engineered warp-knit composition framework built for thermal stabilization."
+              />
+              </div>
+
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Price Matrix ($)</label>
                 <input
