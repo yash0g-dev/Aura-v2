@@ -9,13 +9,14 @@ import { useCartStore } from "@/store/useCartStore";
 import { useStore } from "@/hooks/useStore";
 import { ProfileDrawer } from "./ProfileDrawer";
 import { AnimatePresence } from "framer-motion";
+import type { ICartItem } from "@/types/cart";
 
 export default function Navbar() {
   const [profileOpen, setProfileOpen] = useState(false);
   const user = useUserStore((state) => state.user);
 
-  // Connect the Cart Store to pull real counts for the bag icon indicator
-  const cart = useStore(useCartStore, (state) => state.cart) || [];
+  const cart =
+    (useStore(useCartStore, (state) => state.cart) as ICartItem[]) || [];
   const setCartOpen = useCartStore((state) => state.setCartOpen);
 
   const totalCartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -33,7 +34,6 @@ export default function Navbar() {
           </Link>
 
           {/* 2. MIDDLE ASPECT: The Core Categories (Restored and Perfectly Centered) */}
-
           <nav className="hidden md:flex items-center gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <Link
               href="/shop?department=men"
@@ -55,6 +55,7 @@ export default function Navbar() {
               Drops
             </Link>
           </nav>
+
           {/* 3. RIGHT ASPECT: Utility Interactive Action Buttons Icons */}
           <div className="flex items-center gap-5 z-10">
             {/* Bag Icon Trigger Button */}

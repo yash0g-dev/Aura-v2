@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image"; // Imported next/image
 import axiosInstance from "@/lib/axios";
 import { SlidersHorizontal, Check, Loader2, ShoppingCart } from "lucide-react";
-import type { IProduct } from "@types/product.ts";
 import { toast } from "react-hot-toast";
 import { useCartStore } from "@/store/useCartStore";
+import type { IProduct } from "@/types/product";
 
-export default function IntegratedShopPage() {
+// 1. Rename the core logic component
+function ShopContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const addToCart = useCartStore((state) => state.addToCart);
@@ -25,25 +27,25 @@ export default function IntegratedShopPage() {
   const [maxPrice, setMaxPrice] = useState<number>(1000);
   const [hideOutOfStock, setHideOutOfStock] = useState<boolean>(false);
 
-  // 1. URL Parameter Parser: Reads '?department=men,women' on initial page mount or link clicks
+  // 1. URL Parameter Parser (Patched to prevent infinite re-renders)
   useEffect(() => {
     const deptParam = searchParams.get("department");
     const catParam = searchParams.get("category");
 
-    if (deptParam) {
-      setSelectedDepartments(deptParam.split(","));
-    } else {
-      setSelectedDepartments([]);
+    // Only update state if the URL actually differs from current state
+    const parsedDepts = deptParam ? deptParam.split(",") : [];
+    if (parsedDepts.join(",") !== selectedDepartments.join(",")) {
+      setSelectedDepartments(parsedDepts);
     }
 
-    if (catParam) {
-      setSelectedCategories(catParam.split(","));
-    } else {
-      setSelectedCategories([]);
+    const parsedCats = catParam ? catParam.split(",") : [];
+    if (parsedCats.join(",") !== selectedCategories.join(",")) {
+      setSelectedCategories(parsedCats);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  // 2. Fetch Master Inventory directly from your Express backend cluster
+  // 2. Fetch Master Inventory
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
@@ -90,14 +92,12 @@ export default function IntegratedShopPage() {
     syncFiltersToURL(selectedDepartments, updated);
   };
 
-  // 4. Robust Real-Time Processing Filter (With string scrubbing defenses)
+  // 4. Robust Real-Time Processing Filter
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      // Clean up database strings using lowercase and whitespace trimming
       const productDept = product.department?.trim().toLowerCase() || "";
       const productCat = product.category?.trim().toLowerCase() || "";
 
-      // Department multi-select validation check
       if (
         selectedDepartments.length > 0 &&
         !selectedDepartments.includes(productDept)
@@ -105,7 +105,6 @@ export default function IntegratedShopPage() {
         return false;
       }
 
-      // Category multi-select validation check
       if (
         selectedCategories.length > 0 &&
         !selectedCategories.includes(productCat)
@@ -113,10 +112,7 @@ export default function IntegratedShopPage() {
         return false;
       }
 
-      // Pricing threshold verification
       if (product.price > maxPrice) return false;
-
-      // Inventory pool validation check
       if (hideOutOfStock && product.stock <= 0) return false;
 
       return true;
@@ -134,7 +130,7 @@ export default function IntegratedShopPage() {
     setSelectedCategories([]);
     setMaxPrice(1000);
     setHideOutOfStock(false);
-    router.push("/shop");
+    router.push("/shop", { scroll: false }); // Added scroll: false here too
   };
 
   if (loading) {
@@ -309,15 +305,19 @@ export default function IntegratedShopPage() {
               {filteredProducts.map((product) => (
                 <div key={product._id} className="group space-y-3 relative">
                   <div className="relative w-full aspect-[3/4] bg-neutral-900 border border-neutral-900 overflow-hidden">
-                    <img
+                    {/* Patched to Next/Image for performance */}
+                    <Image
                       src={product.images?.[0] || "/placeholder.jpg"}
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {product.stock > 0 && (
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                         <button
                           onClick={() => {
+                            // Note: Hardcoded to 'M'. You might want a quick size selector here later!
                             addToCart(product, "M");
                             toast.success("Added to shopping bag Matrix");
                           }}
@@ -355,5 +355,20 @@ export default function IntegratedShopPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+// 2. Export the component wrapped in a Suspense boundary to satisfy Next.js router requirements
+export default function IntegratedShopPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
+          <Loader2 className="h-6 w-6 text-white animate-spin" />
+        </div>
+      }
+    >
+      <ShopContent />
+    </Suspense>
   );
 }

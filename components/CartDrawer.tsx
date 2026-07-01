@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useCartStore } from "@/store/useCartStore";
 import { useStore } from "@/hooks/useStore";
 import { useRouter } from "next/navigation";
+import type { ICartItem } from "@/types/cart";
 
 export default function CartDrawer() {
   const router = useRouter();
@@ -15,9 +16,10 @@ export default function CartDrawer() {
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
 
-  const cart = useStore(useCartStore, (state) => state.cart) || [];
+  const cart =
+    (useStore(useCartStore, (state) => state.cart) as ICartItem[]) || [];
   const subtotal =
-    useStore(useCartStore, (state) => state.getCartSubtotal) || 0;
+    (useStore(useCartStore, (state) => state.getCartSubtotal) as number) || 0;
 
   return (
     <AnimatePresence>

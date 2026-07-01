@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
@@ -28,8 +28,8 @@ export function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     router.push("/login");
   };
 
-  // Framer Motion Animation Settings
-  const sidebarVariants = {
+  // 2. Explicitly type your objects as Variants
+  const sidebarVariants: Variants = {
     closed: {
       x: "100%",
       transition: { type: "tween", duration: 0.4, ease: "easeInOut" },
@@ -40,7 +40,7 @@ export function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
     },
   };
 
-  const overlayVariants = {
+  const overlayVariants: Variants = {
     closed: { opacity: 0 },
     open: { opacity: 1 },
   };
