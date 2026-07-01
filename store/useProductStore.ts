@@ -22,16 +22,16 @@ export const useProductStore = create<ProductState>((set) => ({
   fetchProductBySlug: async (slug: string) => {
     set({ isLoadingProduct: true });
     try {
-      const response = await axiosInstance.get<any>(
+      const response = await axiosInstance.get<IProduct>(
         `/api/products/single/${slug}`,
       );
-      const fetchedProduct = response.data?.product || response.data;
-
-      if (!fetchedProduct || typeof fetchedProduct !== "object") {
-        throw new Error("Invalid payload format received from backend server");
-      }
-
-      set({ currentProduct: fetchedProduct, isLoadingProduct: false });
+      // const fetchedProduct = response.data?.product || response.data;
+      //
+      // if (!fetchedProduct || typeof fetchedProduct !== "object") {
+      //   throw new Error("Invalid payload format received from backend server");
+      // }
+      //
+      set({ currentProduct: response.data, isLoadingProduct: false });
     } catch (error: any) {
       console.error("Error inside fetchProductBySlug execution phase:", error);
       toast.error(
@@ -44,18 +44,21 @@ export const useProductStore = create<ProductState>((set) => ({
   fetchFeaturedProducts: async () => {
     set({ isLoadingFeatured: true });
     try {
-      const response = await axiosInstance.get<any>("/api/products/featured");
-      const extractedProducts = Array.isArray(response.data)
-        ? response.data
-        : response.data?.products || response.data?.featuredProducts || [];
-
-      set({ featuredProducts: extractedProducts, isLoadingFeatured: false });
+      const response = await axiosInstance.get<IProduct[]>(
+        "/api/products/featured",
+      );
+      // const extractedProducts = Array.isArray(response.data)
+      //   ? response.data
+      //   : response.data?.products || response.data?.featuredProducts || [];
+      //
+      set({ featuredProducts: response.data, isLoadingFeatured: false });
     } catch (error: any) {
       console.error(
         "Error inside fetchFeaturedProducts execution phase:",
         error,
       );
-      toast.set({ featuredProducts: [], isLoadingFeatured: false });
+      toast.error("Failed to load featured products");
+      set({ featuredProducts: [], isLoadingFeatured: false });
     }
   },
 }));
