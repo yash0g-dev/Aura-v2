@@ -14,7 +14,9 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
   <a href="https://cloudinary.com"><img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" /></a>
   <a href="https://razorpay.com"><img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay" /></a>
 </p>
+
 ---
+
 ## 📦 Repository Structure
 
 This project is split into separate frontend and backend repositories.
@@ -22,7 +24,7 @@ This project is split into separate frontend and backend repositories.
 | Repository | Description |
 | :--- | :--- |
 | **Frontend (Current Repository)** | Next.js 15 storefront, admin dashboard, UI/UX, checkout flow, and client-side features. |
-| **Backend API** | Express.js REST API, authentication, MongoDB, Cloudinary, Razorpay integration, and admin services. |
+| **[Backend API](https://github.com/yash0g-dev/Aura-Ecom/tree/main/backend)** | Express.js REST API, authentication, MongoDB, Cloudinary, Razorpay integration, and admin services. |
 
 > [!NOTE]  
 > **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/yash0g-dev/Aura-Ecom/tree/main/backend).
