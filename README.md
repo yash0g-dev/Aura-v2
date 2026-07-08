@@ -15,8 +15,35 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
   <a href="https://razorpay.com"><img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay" /></a>
 </p>
 ---
+## 📦 Repository Structure
 
+This project is split into separate frontend and backend repositories.
 
+| Repository | Description |
+| :--- | :--- |
+| **Frontend (Current Repository)** | Next.js 15 storefront, admin dashboard, UI/UX, checkout flow, and client-side features. |
+| **Backend API** | Express.js REST API, authentication, MongoDB, Cloudinary, Razorpay integration, and admin services. |
+
+➡️ **Backend Repository:** https://github.com/yash0g-dev/Aura-Ecom/tree/main/backend
+## ⚡ Key Features
+
+- **Modern Storefront Experience:** Premium, responsive UI with smooth animations, intuitive navigation, and a minimalist shopping experience optimized for desktop and mobile.
+
+- **Dynamic Product Catalog:** Browse products with real-time filtering, sorting, and category refinement. Filter selections are synchronized with URL query parameters, making searches shareable and persistent across refreshes.
+
+- **SEO-Friendly Product Pages:** Each product is accessible through clean, slug-based URLs, enabling better discoverability and a more intuitive browsing experience.
+
+- **Secure Authentication:** Cookie-based authentication with protected admin routes and secure session management.
+
+- **Razorpay Payment Integration:** End-to-end checkout flow powered by Razorpay with secure payment verification and order processing.
+
+- **Administrative Dashboard:** Dedicated admin portal for managing the product catalog, inventory, orders, and store operations from a centralized interface.
+
+- **Analytics & Telemetry:** Live dashboard displaying key business metrics, including revenue, orders, product performance, and overall store activity.
+
+- **Cloud Media Management:** Product images are uploaded directly to Cloudinary for fast, reliable, and scalable media delivery.
+
+- **Optimized Backend Architecture:** RESTful API built with Express and MongoDB, supporting efficient data retrieval, secure CRUD operations, and scalable application growth.
 
 <p align="center">
   <img src="./assets/home.png" width="100%">
@@ -32,18 +59,6 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
     <img src="./assets/women.png" width="900">
     <img src="./assets/checkout.png" width="900">
 </p>
-
-### Administrative Workspace Hub
-
-<p align="center">
-  <img src="./assets/adminlogin.png" width="900">
-   <img src="./assets/admindashboard.png" width="900">
-</p>
-
----
-
-### Administrative Workspace Hub
-![Aura Administrative Command Center](https://placehold.co/1200x600/0a0a0a/ffffff?text=ADMINISTRATOR+CONTROL+HUB+-[LIVE+TELEMETRY+DASHBOARD])
 
 ---
 
@@ -77,35 +92,44 @@ The ecosystem includes a secure, abstracted control vector for store managers to
 To access the administrative dashboard, pass the hardcoded root parameters through the secure authentication form:
 
 * **Access Identity:** `admin@gmail.com`
-* **Access Cipher:** `123456`
+* **Access Password:** `123456`
 
 ---
 
 ### 🕹️ Operational Walkthrough
 
 #### Step 1: Accessing the Gateway Node
-Navigate to the root authentication layout (`/login` or `/admin`). Enter the verification credentials into the minimalist entry frame.
+Navigate to the root authentication layout (`/login` ). Enter the verification credentials into the minimalist entry frame.
+
+<p align="center">
+  <img src="./assets/adminlogin.png" width="900">
+   <img src="./assets/admindashboard.png" width="900">
+</p>
+
+---
+
+### Administrative Workspace Hub
+![Aura Administrative Command Center](https://placehold.co/1200x600/0a0a0a/ffffff?text=ADMINISTRATOR+CONTROL+HUB+-[LIVE+TELEMETRY+DASHBOARD])
+
 
 ![Admin Login Interface Screen](https://placehold.co/1200x500/0a0a0a/ffffff?text=AUTHENTICATION+GATEWAY+-+[AWAITING+ROOT+CIPHER])
 
 #### Step 2: Telemetry Overview & Financial Tracking
 Upon clean token signature verification, the node transitions to the telemetry board. Here you can monitor systemic gross merchandise value (GMV), capture totals, and transaction frequency logs.
 
+<p align="center">
+  <img src="./assets/telemetry.png" width="900">
+</p>
 ![Administrative Live Telemetry Board](https://placehold.co/1200x500/0a0a0a/ffffff?text=TELEMETRY+LEDGER+-+[LIVE+SERVER+METRICS])
 
 #### Step 3: Product Catalog Aggregation & Uploads
 To append a new dropset item, navigate to the catalog manipulation sector. Use the native drag-and-drop boundary box to parse asset attachments straight to Cloudinary pipelines. Set strict string arrays for categories and tracking numbers.
 
+<p align="center">
+  <img src="./assets/admincreateprod.png" width="900">
+</p>
+
 ![Product Upload Vector](https://placehold.co/1200x500/0a0a0a/ffffff?text=INVENTORY+MUTATION+PANEL+-+[MULTIPART+UPLOAD+ACTIVE])
-
----
-
-## ⚡ Core Engineering Milestones
-
-* **Dynamic Fluid Layout Squeezing:** The refinement sidebar component dynamically manipulates grid widths via hardware-accelerated vectors, re-flowing products in real time without causing screen stuttering or rendering breaks.
-* **Two-Way URL Query Synchronization:** Filter checkboxes are bound directly to the browser search parameters. Refreshing the browser or passing the link fully preserves checked search parameters across sessions.
-* **Cross-Origin Cookie Handshaking:** Session verification passes automatically across independent cross-origin ports (`:3000` to `:5050`) using secure `httpOnly` tracking flags and rigid CORS parameters.
-* **Memory-Safe Upload Multiplexing:** Form layouts handle native image attachments seamlessly. Files are handled using memory buffers that stream chunks straight onto Cloudinary cloud delivery networks.
 
 ---
 
