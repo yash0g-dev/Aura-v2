@@ -16,7 +16,8 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
 
 ## 🛠️ Architecture Matrix
 
-The architecture splits responsibility across a decoupled micro-architecture layer. 
+### Core Technology Vectors
+`[Next.js Documentation](https://nextjs.org/)` // `[Tailwind CSS Atlas](https://tailwindcss.com/)` // `[Framer Motion Engine](https://www.framer.com/motion/)` // `[Zustand State Ledger](https://zustand-demo.pmnd.rs/)` // `[Node.js Runtime](https://nodejs.org/)` // `[MongoDB Cluster](https://www.mongodb.com/)` // `[Cloudinary Media Asset Cloud](https://cloudinary.com/)` // `[Razorpay Gateway](https://razorpay.com/)`
 
 > [!NOTE]  
 > **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/YOUR_USERNAME/YOUR_BACKEND_V1_REPO).
@@ -33,6 +34,37 @@ The architecture splits responsibility across a decoupled micro-architecture lay
 | **Database Pool** | `MongoDB` / `Mongoose` | Rigid aggregation modeling and nested verification sub-documents. |
 | **Media Delivery** | `Multer` / `Cloudinary` | Direct multi-part buffer asset streaming bypassing local disk layers. |
 | **Payment Gateway**| `Razorpay SDK` | Cryptographic merchant handshake signatures and validation sandboxes. |
+
+---
+
+## 🎛️ Administrative Workspace Operations Guide
+
+The ecosystem includes a secure, abstracted control vector for store managers to override inventory levels, parse financial velocity, and handle active product catalog drops. 
+
+### 🔐 Root Verification Credentials
+To access the administrative dashboard, pass the hardcoded root parameters through the secure authentication form:
+
+* **Access Identity:** `admin@gmail.com`
+* **Access Cipher:** `123456`
+
+---
+
+### 🕹️ Operational Walkthrough
+
+#### Step 1: Accessing the Gateway Node
+Navigate to the root authentication layout (`/login` or `/admin`). Enter the verification credentials into the minimalist entry frame.
+
+![Admin Login Interface Screen](https://placehold.co/1200x500/0a0a0a/ffffff?text=AUTHENTICATION+GATEWAY+-+[AWAITING+ROOT+CIPHER])
+
+#### Step 2: Telemetry Overview & Financial Tracking
+Upon clean token signature verification, the node transitions to the telemetry board. Here you can monitor systemic gross merchandise value (GMV), capture totals, and transaction frequency logs.
+
+![Administrative Live Telemetry Board](https://placehold.co/1200x500/0a0a0a/ffffff?text=TELEMETRY+LEDGER+-+[LIVE+SERVER+METRICS])
+
+#### Step 3: Product Catalog Aggregation & Uploads
+To append a new dropset item, navigate to the catalog manipulation sector. Use the native drag-and-drop boundary box to parse asset attachments straight to Cloudinary pipelines. Set strict string arrays for categories and tracking numbers.
+
+![Product Upload Vector](https://placehold.co/1200x500/0a0a0a/ffffff?text=INVENTORY+MUTATION+PANEL+-+[MULTIPART+UPLOAD+ACTIVE])
 
 ---
 
