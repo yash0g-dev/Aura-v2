@@ -17,7 +17,15 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
 ## 🛠️ Architecture Matrix
 
 ### Core Technology Vectors
-`[Next.js Documentation](https://nextjs.org/)` // `[Tailwind CSS Atlas](https://tailwindcss.com/)` // `[Framer Motion Engine](https://www.framer.com/motion/)` // `[Zustand State Ledger](https://zustand-demo.pmnd.rs/)` // `[Node.js Runtime](https://nodejs.org/)` // `[MongoDB Cluster](https://www.mongodb.com/)` // `[Cloudinary Media Asset Cloud](https://cloudinary.com/)` // `[Razorpay Gateway](https://razorpay.com/)`
+
+[Next.js](https://nextjs.org/) •
+[Tailwind CSS](https://tailwindcss.com/) •
+[Framer Motion](https://www.framer.com/motion/) •
+[Zustand](https://zustand-demo.pmnd.rs/) •
+[Node.js](https://nodejs.org/) •
+[MongoDB](https://www.mongodb.com/) •
+[Cloudinary](https://cloudinary.com/) •
+[Razorpay](https://razorpay.com/)
 
 > [!NOTE]  
 > **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/YOUR_USERNAME/YOUR_BACKEND_V1_REPO).
