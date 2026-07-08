@@ -24,7 +24,9 @@ This project is split into separate frontend and backend repositories.
 | **Frontend (Current Repository)** | Next.js 15 storefront, admin dashboard, UI/UX, checkout flow, and client-side features. |
 | **Backend API** | Express.js REST API, authentication, MongoDB, Cloudinary, Razorpay integration, and admin services. |
 
-➡️ **Backend Repository:** https://github.com/yash0g-dev/Aura-Ecom/tree/main/backend
+> [!NOTE]  
+> **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/yash0g-dev/Aura-Ecom/tree/main/backend).
+
 ## ⚡ Key Features
 
 - **Modern Storefront Experience:** Premium, responsive UI with smooth animations, intuitive navigation, and a minimalist shopping experience optimized for desktop and mobile.
@@ -43,7 +45,6 @@ This project is split into separate frontend and backend repositories.
 
 - **Cloud Media Management:** Product images are uploaded directly to Cloudinary for fast, reliable, and scalable media delivery.
 
-- **Optimized Backend Architecture:** RESTful API built with Express and MongoDB, supporting efficient data retrieval, secure CRUD operations, and scalable application growth.
 
 <p align="center">
   <img src="./assets/home.png" width="100%">
@@ -66,8 +67,7 @@ This project is split into separate frontend and backend repositories.
 
 
 
-> [!NOTE]  
-> **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/YOUR_USERNAME/YOUR_BACKEND_V1_REPO).
+
 
 ### Tech Stack Details
 
