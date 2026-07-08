@@ -9,6 +9,7 @@ import { SlidersHorizontal, Check, Loader2, ShoppingCart } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useCartStore } from "@/store/useCartStore";
 import type { IProduct } from "@/types/product";
+import Link from "next/link";
 
 // 1. Rename the core logic component
 function ShopContent() {
@@ -26,12 +27,17 @@ function ShopContent() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [maxPrice, setMaxPrice] = useState<number>(1000);
   const [hideOutOfStock, setHideOutOfStock] = useState<boolean>(false);
+  const [activeSearch, setActiveSearch] = useState<string>("");
 
-  // 1. URL Parameter Parser (Patched to prevent infinite re-renders)
+  //  URL Parameter Parser
   useEffect(() => {
     const deptParam = searchParams.get("department");
     const catParam = searchParams.get("category");
+    const searchParam = searchParams.get("search");
 
+    if (searchParam !== activeSearch) {
+      setActiveSearch(searchParam || "");
+    }
     // Only update state if the URL actually differs from current state
     const parsedDepts = deptParam ? deptParam.split(",") : [];
     if (parsedDepts.join(",") !== selectedDepartments.join(",")) {
@@ -42,10 +48,11 @@ function ShopContent() {
     if (parsedCats.join(",") !== selectedCategories.join(",")) {
       setSelectedCategories(parsedCats);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  // 2. Fetch Master Inventory
+  //  Fetch Master Inventory
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
@@ -62,12 +69,13 @@ function ShopContent() {
     fetchProducts();
   }, [fetchProducts]);
 
-  // 3. Central URL State Synchronization Engine
+  //  Central URL State Synchronization Engine
   const syncFiltersToURL = (departments: string[], categories: string[]) => {
     const params = new URLSearchParams();
 
     if (departments.length > 0) params.set("department", departments.join(","));
     if (categories.length > 0) params.set("category", categories.join(","));
+    if (activeSearch) params.set("search", activeSearch);
 
     const queryString = params.toString();
     router.push(queryString ? `/shop?${queryString}` : "/shop", {
@@ -92,12 +100,24 @@ function ShopContent() {
     syncFiltersToURL(selectedDepartments, updated);
   };
 
-  // 4. Robust Real-Time Processing Filter
+  //  Robust Real-Time Processing Filter
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const productDept = product.department?.trim().toLowerCase() || "";
       const productCat = product.category?.trim().toLowerCase() || "";
+      const productName = product.name?.toLowerCase() || "";
 
+      if (activeSearch) {
+        const query = activeSearch.toLowerCase();
+        // Check if query is in name or department/category
+        if (
+          !productName.includes(query) &&
+          !productDept.includes(query) &&
+          !productCat.includes(query)
+        ) {
+          return false;
+        }
+      }
       if (
         selectedDepartments.length > 0 &&
         !selectedDepartments.includes(productDept)
@@ -123,6 +143,7 @@ function ShopContent() {
     selectedCategories,
     maxPrice,
     hideOutOfStock,
+    activeSearch,
   ]);
 
   const resetFilters = () => {
@@ -304,42 +325,46 @@ function ShopContent() {
             >
               {filteredProducts.map((product) => (
                 <div key={product._id} className="group space-y-3 relative">
-                  <div className="relative w-full aspect-[3/4] bg-neutral-900 border border-neutral-900 overflow-hidden">
-                    {/* Patched to Next/Image for performance */}
-                    <Image
-                      src={product.images?.[0] || "/placeholder.jpg"}
-                      alt={product.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    {product.stock > 0 && (
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <button
-                          onClick={() => {
-                            // Note: Hardcoded to 'M'. You might want a quick size selector here later!
-                            addToCart(product, "M");
-                            toast.success("Added to shopping bag Matrix");
-                          }}
-                          className="w-full bg-white text-black py-3 text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors"
-                        >
-                          Quick Add <ShoppingCart className="h-3 w-3" />
-                        </button>
-                      </div>
-                    )}
-                    {product.stock <= 0 && (
-                      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px] flex items-center justify-center">
-                        <span className="border border-neutral-800 text-neutral-500 font-black text-[9px] uppercase tracking-widest px-3 py-1 bg-black/40">
-                          Depleted Allocation
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                  <Link href={`/product/${product.slug}`} className="block">
+                    <div className="relative w-full aspect-[3/4] bg-neutral-900 border border-neutral-900 overflow-hidden">
+                      {/* Patched to Next/Image for performance */}
+                      <Image
+                        src={product.images?.[0] || "/placeholder.jpg"}
+                        alt={product.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {product.stock > 0 && (
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                          <button
+                            onClick={() => {
+                              // Note: Hardcoded to 'M'. You might want a quick size selector here later!
+                              addToCart(product, "M");
+                              toast.success("Added to shopping bag Matrix");
+                            }}
+                            className="w-full bg-white text-black py-3 text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors"
+                          >
+                            Quick Add <ShoppingCart className="h-3 w-3" />
+                          </button>
+                        </div>
+                      )}
+                      {product.stock <= 0 && (
+                        <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px] flex items-center justify-center">
+                          <span className="border border-neutral-800 text-neutral-500 font-black text-[9px] uppercase tracking-widest px-3 py-1 bg-black/40">
+                            Depleted Allocation
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </Link>
                   <div className="flex justify-between items-start text-xs px-1">
                     <div className="space-y-0.5 truncate max-w-[78%]">
-                      <h3 className="font-black uppercase truncate text-neutral-200 group-hover:text-white transition-colors">
-                        {product.name}
-                      </h3>
+                      <Link href={`/product/${product.slug}`} className="block">
+                        <h3 className="font-black uppercase truncate text-neutral-200 group-hover:text-white transition-colors">
+                          {product.name}
+                        </h3>
+                      </Link>
                       <p className="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">
                         {product.department} // {product.category}
                       </p>
