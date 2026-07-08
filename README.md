@@ -1,7 +1,19 @@
 # A U R A // Premium E-Commerce Ecosystem
 
 Aura is a high-end, production-ready full-stack e-commerce experience tailored for premium technical performance gear. Built with a stark, industrial minimalist design language inspired by luxury editorial frameworks (Zara, Nike Lab), the ecosystem features asynchronous layout scaling, real-time query parameter synchronization, and cryptographic payment fulfillment pipelines.
+---
+### Core Technology Vectors
 
+<p align="left">
+  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js" /></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" /></a>
+  <a href="https://www.framer.com/motion"><img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer" /></a>
+  <a href="https://zustand-demo.pmnd.rs"><img src="https://img.shields.io/badge/Zustand-443E38?style=for-the-badge" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" /></a>
+  <a href="https://www.mongodb.com"><img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" /></a>
+  <a href="https://cloudinary.com"><img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" /></a>
+  <a href="https://razorpay.com"><img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay" /></a>
+</p>
 ---
 
 ## 📸 Interface Showcases
@@ -16,18 +28,7 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
 
 ## 🛠️ Architecture Matrix
 
-### Core Technology Vectors
 
-<p align="left">
-  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js" /></a>
-  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" /></a>
-  <a href="https://www.framer.com/motion"><img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer" /></a>
-  <a href="https://zustand-demo.pmnd.rs"><img src="https://img.shields.io/badge/Zustand-443E38?style=for-the-badge" /></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" /></a>
-  <a href="https://www.mongodb.com"><img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" /></a>
-  <a href="https://cloudinary.com"><img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" /></a>
-  <a href="https://razorpay.com"><img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay" /></a>
-</p>
 
 > [!NOTE]  
 > **Core Backend Inheritance:** The backend service powering this node ecosystem is inherited and refactored directly from the verified stable release of [Aura Backend v1 Core Architecture](https://github.com/YOUR_USERNAME/YOUR_BACKEND_V1_REPO).
