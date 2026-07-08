@@ -16,10 +16,31 @@ Aura is a high-end, production-ready full-stack e-commerce experience tailored f
 </p>
 ---
 
-## 📸 Interface Showcases
+
+
+<p align="center">
+  <img src="./assets/home.png" width="100%">
+</p>
+
+## 📸 Interface Showcase
 
 ### Client Discovery Catalog Shell
-![Aura Client Interface Grid](https://placehold.co/1200x600/0a0a0a/ffffff?text=AURA+CLIENT+CATALOG+SHEET+-[SQUEEZE+FILTER+ACTIVE])
+
+<p align="center">
+  <img src="./assets/catalog.png" width="900">
+    <img src="./assets/productnbag.png" width="900">
+    <img src="./assets/women.png" width="900">
+    <img src="./assets/checkout.png" width="900">
+</p>
+
+### Administrative Workspace Hub
+
+<p align="center">
+  <img src="./assets/adminlogin.png" width="900">
+   <img src="./assets/admindashboard.png" width="900">
+</p>
+
+---
 
 ### Administrative Workspace Hub
 ![Aura Administrative Command Center](https://placehold.co/1200x600/0a0a0a/ffffff?text=ADMINISTRATOR+CONTROL+HUB+-[LIVE+TELEMETRY+DASHBOARD])
