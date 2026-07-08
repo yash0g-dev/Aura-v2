@@ -125,7 +125,6 @@ To append a new dropset item, navigate to the catalog manipulation sector. Use t
   <img src="./assets/admincreateprod.png" width="900">
 </p>
 
-![Product Upload Vector](https://placehold.co/1200x500/0a0a0a/ffffff?text=INVENTORY+MUTATION+PANEL+-+[MULTIPART+UPLOAD+ACTIVE])
 
 ---
 
