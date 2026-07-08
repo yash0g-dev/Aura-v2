@@ -19,7 +19,7 @@ export default function CartDrawer() {
   const cart =
     (useStore(useCartStore, (state) => state.cart) as ICartItem[]) || [];
   const subtotal =
-    (useStore(useCartStore, (state) => state.getCartSubtotal) as number) || 0;
+    (useStore(useCartStore, (state) => state.getCartSubtotal()) as number) || 0;
 
   return (
     <AnimatePresence>
