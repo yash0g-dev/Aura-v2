@@ -1,7 +1,7 @@
 # A U R A // Premium E-Commerce Ecosystem
 
 Aura is a high-end, production-ready full-stack e-commerce experience tailored for premium technical performance gear. Built with a stark, industrial minimalist design language inspired by luxury editorial frameworks (Zara, Nike Lab), the ecosystem features asynchronous layout scaling, real-time query parameter synchronization, and cryptographic payment fulfillment pipelines.
----
+
 ### Core Technology Vectors
 
 <p align="left">
