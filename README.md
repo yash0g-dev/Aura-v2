@@ -110,19 +110,13 @@ Navigate to the root authentication layout (`/login` ). Enter the verification c
 
 ---
 
-### Administrative Workspace Hub
-![Aura Administrative Command Center](https://placehold.co/1200x600/0a0a0a/ffffff?text=ADMINISTRATOR+CONTROL+HUB+-[LIVE+TELEMETRY+DASHBOARD])
-
-
-![Admin Login Interface Screen](https://placehold.co/1200x500/0a0a0a/ffffff?text=AUTHENTICATION+GATEWAY+-+[AWAITING+ROOT+CIPHER])
-
 #### Step 2: Telemetry Overview & Financial Tracking
 Upon clean token signature verification, the node transitions to the telemetry board. Here you can monitor systemic gross merchandise value (GMV), capture totals, and transaction frequency logs.
 
 <p align="center">
   <img src="./assets/telemetry.png" width="900">
 </p>
-![Administrative Live Telemetry Board](https://placehold.co/1200x500/0a0a0a/ffffff?text=TELEMETRY+LEDGER+-+[LIVE+SERVER+METRICS])
+
 
 #### Step 3: Product Catalog Aggregation & Uploads
 To append a new dropset item, navigate to the catalog manipulation sector. Use the native drag-and-drop boundary box to parse asset attachments straight to Cloudinary pipelines. Set strict string arrays for categories and tracking numbers.
