@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import axiosInstance from "@/lib/axios"; // Double check your axios path alias matches
+import axiosInstance from "@/lib/axios";
 import { toast } from "react-hot-toast";
 import type { IProduct } from "@/types/product";
 
